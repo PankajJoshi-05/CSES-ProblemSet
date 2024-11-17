@@ -26,13 +26,18 @@ void placeQueens(int r, vector<string>&str, int& ans) {
         return;
     }
     for (int i = 0; i < 8; i++) {
+        // if queen is already placed
         if (str[r][i] == '*' || sameColumn[i] || sameRow[r] || sameLeftDiag[r - i + 7] || sameRightDiag[r + i])continue;
+
+        //place the quuen
         str[r][i] = '*';
         sameRow[r] = true;
         sameColumn[i] = true;
         sameLeftDiag[r - i + 7] = true;
         sameRightDiag[i + r] = true;
         placeQueens(r + 1, str, ans);
+
+        //Backtrack:Remove the queen
         str[r][i] = '.';
         sameRow[r] = false;
         sameColumn[i] = false;
