@@ -1,4 +1,4 @@
-CSES : Collecting Numbers
+// CSES : Collecting Numbers
 // Problem Link : https://cses.fi/problemset/task/2216
 
 #include <bits/stdc++.h>
@@ -12,9 +12,9 @@ int main() {
        cin>>v[i];
        pos[v[i]]=i;
    }
-   int cnt=0;
-   for(int i=1;i<=n;i++){
-       if(pos[i-1]<pos[i]){
+   int cnt=1;
+   for(int i=1;i<n;i++){
+       if(pos[i+1]<pos[i]){
            cnt++;
        }
    }
